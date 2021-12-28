@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\include">
+      <UniqueIdentifier>{40e7c0ab-3eec-4390-8bb1-a09fd44c967a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\include">
+      <UniqueIdentifier>{3f432531-5837-4c6f-a7e5-86dd5e85ff55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\View">
+      <UniqueIdentifier>{718a463e-7f90-4546-a973-06a7e0ad06ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\View">
+      <UniqueIdentifier>{51778d4d-e412-45fa-8494-c20409ce0b36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="kiero">
+      <UniqueIdentifier>{e2660202-901d-4dd2-94f2-f5f3c5274db5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\sample">
+      <UniqueIdentifier>{62969c08-6a26-45f1-847c-13bc9efc2ede}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DebugMod.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\imgui-1.85\imconfig.h">
+      <Filter>头文件\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\imgui-1.85\imgui.h">
+      <Filter>头文件\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\imgui-1.85\backends\imgui_impl_dx9.h">
+      <Filter>头文件\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\imgui-1.85\backends\imgui_impl_win32.h">
+      <Filter>头文件\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\imgui-1.85\imgui_internal.h">
+      <Filter>头文件\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\imgui-1.85\imstb_rectpack.h">
+      <Filter>头文件\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\imgui-1.85\imstb_textedit.h">
+      <Filter>头文件\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\imgui-1.85\imstb_truetype.h">
+      <Filter>头文件\include</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugCmd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\kiero-1.2.12\kiero.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\kiero-1.2.12\minhook\src\buffer.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\kiero-1.2.12\minhook\src\trampoline.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\kiero-1.2.12\minhook\src\hde\hde32.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\kiero-1.2.12\minhook\src\hde\hde64.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\kiero-1.2.12\minhook\src\hde\pstdint.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\kiero-1.2.12\minhook\src\hde\table32.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\kiero-1.2.12\minhook\src\hde\table64.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\kiero-1.2.12\minhook\include\MinHook.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="DataWindow.h">
+      <Filter>头文件\View</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityDataWindow.h">
+      <Filter>头文件\View</Filter>
+    </ClInclude>
+    <ClInclude Include="Include.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AllView.h">
+      <Filter>头文件\View</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraDataWindow.h">
+      <Filter>头文件\View</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyDataWindow.h">
+      <Filter>头文件\View</Filter>
+    </ClInclude>
+    <ClInclude Include="ListDataWindow.h">
+      <Filter>头文件\View</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayDataWindow.h">
+      <Filter>头文件\View</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupDataWindow.h">
+      <Filter>头文件\View</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_impl_virtools.h">
+      <Filter>头文件\include</Filter>
+    </ClInclude>
+    <ClInclude Include="LightDataWindow.h">
+      <Filter>头文件\View</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGuiSetup.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DebugMod.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\imgui-1.85\imgui.cpp">
+      <Filter>源文件\include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\imgui-1.85\imgui_draw.cpp">
+      <Filter>源文件\include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\imgui-1.85\backends\imgui_impl_dx9.cpp">
+      <Filter>源文件\include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\imgui-1.85\backends\imgui_impl_win32.cpp">
+      <Filter>源文件\include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\imgui-1.85\imgui_tables.cpp">
+      <Filter>源文件\include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\imgui-1.85\imgui_widgets.cpp">
+      <Filter>源文件\include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\kiero-1.2.12\kiero.cpp">
+      <Filter>kiero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\kiero-1.2.12\minhook\src\buffer.c">
+      <Filter>kiero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\kiero-1.2.12\minhook\src\hook.c">
+      <Filter>kiero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\kiero-1.2.12\minhook\src\trampoline.c">
+      <Filter>kiero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\kiero-1.2.12\minhook\src\hde\hde32.c">
+      <Filter>kiero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\kiero-1.2.12\minhook\src\hde\hde64.c">
+      <Filter>kiero</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityDataWindow.cpp">
+      <Filter>源文件\View</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraDataWindow.cpp">
+      <Filter>源文件\View</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyDataWindow.cpp">
+      <Filter>源文件\View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\imgui-1.85\imgui_demo.cpp">
+      <Filter>源文件\sample</Filter>
+    </ClCompile>
+    <ClCompile Include="DataWindow.cpp">
+      <Filter>源文件\View</Filter>
+    </ClCompile>
+    <ClCompile Include="ListDataWindow.cpp">
+      <Filter>源文件\View</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrayDataWindow.cpp">
+      <Filter>源文件\View</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupDataWindow.cpp">
+      <Filter>源文件\View</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_impl_virtools.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LightDataWindow.cpp">
+      <Filter>源文件\View</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGuiSetup.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugCmd.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\kiero-1.2.12\LICENSE">
+      <Filter>kiero</Filter>
+    </None>
+    <None Include="..\..\..\kiero-1.2.12\README.md">
+      <Filter>kiero</Filter>
+    </None>
+    <None Include="..\..\..\kiero-1.2.12\minhook\dll_resources\MinHook.def">
+      <Filter>kiero</Filter>
+    </None>
+    <None Include="..\..\..\kiero-1.2.12\minhook\.editorconfig">
+      <Filter>kiero</Filter>
+    </None>
+    <None Include="..\..\..\kiero-1.2.12\minhook\.gitignore">
+      <Filter>kiero</Filter>
+    </None>
+    <None Include="..\..\..\kiero-1.2.12\minhook\README.md">
+      <Filter>kiero</Filter>
+    </None>
+    <None Include="..\..\..\kiero-1.2.12\.gitignore">
+      <Filter>kiero</Filter>
+    </None>
+    <None Include="..\..\..\kiero-1.2.12\.gitmodules">
+      <Filter>kiero</Filter>
+    </None>
+    <None Include="d3d8.dll">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="enbconvertor.ini">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\kiero-1.2.12\METHODSTABLE.txt">
+      <Filter>kiero</Filter>
+    </Text>
+    <Text Include="..\..\..\kiero-1.2.12\minhook\AUTHORS.txt">
+      <Filter>kiero</Filter>
+    </Text>
+    <Text Include="..\..\..\kiero-1.2.12\minhook\LICENSE.txt">
+      <Filter>kiero</Filter>
+    </Text>
+    <Text Include="TODO.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\..\kiero-1.2.12\minhook\dll_resources\MinHook.rc">
+      <Filter>kiero</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

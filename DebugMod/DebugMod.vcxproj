@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\imgui-1.85\backends\imgui_impl_dx9.h" />
+    <ClInclude Include="..\..\..\imgui-1.85\backends\imgui_impl_win32.h" />
+    <ClInclude Include="..\..\..\imgui-1.85\imconfig.h" />
+    <ClInclude Include="..\..\..\imgui-1.85\imgui.h" />
+    <ClInclude Include="..\..\..\imgui-1.85\imgui_internal.h" />
+    <ClInclude Include="..\..\..\imgui-1.85\imstb_rectpack.h" />
+    <ClInclude Include="..\..\..\imgui-1.85\imstb_textedit.h" />
+    <ClInclude Include="..\..\..\imgui-1.85\imstb_truetype.h" />
+    <ClInclude Include="..\..\..\kiero-1.2.12\kiero.h" />
+    <ClInclude Include="..\..\..\kiero-1.2.12\minhook\include\MinHook.h" />
+    <ClInclude Include="..\..\..\kiero-1.2.12\minhook\src\buffer.h" />
+    <ClInclude Include="..\..\..\kiero-1.2.12\minhook\src\hde\hde32.h" />
+    <ClInclude Include="..\..\..\kiero-1.2.12\minhook\src\hde\hde64.h" />
+    <ClInclude Include="..\..\..\kiero-1.2.12\minhook\src\hde\pstdint.h" />
+    <ClInclude Include="..\..\..\kiero-1.2.12\minhook\src\hde\table32.h" />
+    <ClInclude Include="..\..\..\kiero-1.2.12\minhook\src\hde\table64.h" />
+    <ClInclude Include="..\..\..\kiero-1.2.12\minhook\src\trampoline.h" />
+    <ClInclude Include="AllView.h" />
+    <ClInclude Include="ArrayDataWindow.h" />
+    <ClInclude Include="CameraDataWindow.h" />
+    <ClInclude Include="DataWindow.h" />
+    <ClInclude Include="DebugCmd.h" />
+    <ClInclude Include="DebugMod.h" />
+    <ClInclude Include="EntityDataWindow.h" />
+    <ClInclude Include="GroupDataWindow.h" />
+    <ClInclude Include="imgui_impl_virtools.h" />
+    <ClInclude Include="Include.h" />
+    <ClInclude Include="KeyDataWindow.h" />
+    <ClInclude Include="LightDataWindow.h" />
+    <ClInclude Include="ListDataWindow.h" />
+    <ClInclude Include="ImGuiSetup.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\imgui-1.85\backends\imgui_impl_dx9.cpp" />
+    <ClCompile Include="..\..\..\imgui-1.85\backends\imgui_impl_win32.cpp" />
+    <ClCompile Include="..\..\..\imgui-1.85\imgui.cpp" />
+    <ClCompile Include="..\..\..\imgui-1.85\imgui_demo.cpp" />
+    <ClCompile Include="..\..\..\imgui-1.85\imgui_draw.cpp" />
+    <ClCompile Include="..\..\..\imgui-1.85\imgui_tables.cpp" />
+    <ClCompile Include="..\..\..\imgui-1.85\imgui_widgets.cpp" />
+    <ClCompile Include="..\..\..\kiero-1.2.12\kiero.cpp" />
+    <ClCompile Include="..\..\..\kiero-1.2.12\minhook\src\buffer.c" />
+    <ClCompile Include="..\..\..\kiero-1.2.12\minhook\src\hde\hde32.c" />
+    <ClCompile Include="..\..\..\kiero-1.2.12\minhook\src\hde\hde64.c" />
+    <ClCompile Include="..\..\..\kiero-1.2.12\minhook\src\hook.c" />
+    <ClCompile Include="..\..\..\kiero-1.2.12\minhook\src\trampoline.c" />
+    <ClCompile Include="ArrayDataWindow.cpp" />
+    <ClCompile Include="CameraDataWindow.cpp" />
+    <ClCompile Include="DataWindow.cpp" />
+    <ClCompile Include="DebugCmd.cpp" />
+    <ClCompile Include="DebugMod.cpp" />
+    <ClCompile Include="EntityDataWindow.cpp" />
+    <ClCompile Include="GroupDataWindow.cpp" />
+    <ClCompile Include="ImGuiSetup.cpp" />
+    <ClCompile Include="imgui_impl_virtools.cpp" />
+    <ClCompile Include="KeyDataWindow.cpp" />
+    <ClCompile Include="LightDataWindow.cpp" />
+    <ClCompile Include="ListDataWindow.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\kiero-1.2.12\.gitignore" />
+    <None Include="..\..\..\kiero-1.2.12\.gitmodules" />
+    <None Include="..\..\..\kiero-1.2.12\LICENSE" />
+    <None Include="..\..\..\kiero-1.2.12\minhook\.editorconfig" />
+    <None Include="..\..\..\kiero-1.2.12\minhook\.gitignore" />
+    <None Include="..\..\..\kiero-1.2.12\minhook\dll_resources\MinHook.def" />
+    <None Include="..\..\..\kiero-1.2.12\minhook\README.md" />
+    <None Include="..\..\..\kiero-1.2.12\README.md" />
+    <None Include="d3d8.dll" />
+    <None Include="enbconvertor.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\kiero-1.2.12\METHODSTABLE.txt" />
+    <Text Include="..\..\..\kiero-1.2.12\minhook\AUTHORS.txt" />
+    <Text Include="..\..\..\kiero-1.2.12\minhook\LICENSE.txt" />
+    <Text Include="TODO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\..\kiero-1.2.12\minhook\dll_resources\MinHook.rc" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{D1FD9BFE-4131-4D11-A89D-7D7FF056C34E}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>DebugMod</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\..\..\..\Ballance\ModLoader\Mods</OutDir>
+    <TargetExt>.bmod</TargetExt>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\..\..\Ballance-raw\ModLoader\Mods</OutDir>
+    <TargetExt>.bmod</TargetExt>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;DEBUGMOD_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>D:\BallanceMapping\BallanceModding\BML-0.3.40-dev\include;D:\VS\imgui-1.85;D:\VS\imgui-1.85\backends;D:\VS\kiero-1.2.12;D:\VS\kiero-1.2.12\minhook;D:\VS\kiero-1.2.12\minhook\include;D:\VS\kiero-1.2.12\minhook\dll_resources;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>D:\BallanceMapping\BallanceModding\BML-0.3.40-dev\lib\Debug\BML.lib;%(AdditionalDependencies);d3d9.lib;d3dx9.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;DEBUGMOD_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;DEBUGMOD_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>D:\BallanceMapping\BallanceModding\BML-0.3.40-dev\include;D:\VS\imgui-1.85;D:\VS\imgui-1.85\backends;D:\VS\kiero-1.2.12;D:\VS\kiero-1.2.12\minhook;D:\VS\kiero-1.2.12\minhook\include;D:\VS\kiero-1.2.12\minhook\dll_resources;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>"D:\BallanceMapping\BallanceModding\BML-0.3.40-dev\lib\Release\BML.lib";%(AdditionalDependencies);d3d9.lib;d3dx9.lib</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;DEBUGMOD_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
