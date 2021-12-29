@@ -1,0 +1,6 @@
+[submodule "submodules/imgui"]
+	path = submodules/imgui
+	url = https://github.com/ocornut/imgui.git
+[submodule "submodules/kiero"]
+	path = submodules/kiero
+	url = https://github.com/Rebzzel/kiero.git
