@@ -1,5 +1,5 @@
 #include "EntityDataWindow.h"
-#include "DebugMod.h"
+#include "../DebugMod.h"
 
 EntityDataWindow::EntityDataWindow(CK3dEntity* entity) {
 	InitializeTitle("3D Entity");

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Include.h"
-#include "AllView.h"
+#include "View/AllView.h"
 
 extern "C" {
 	__declspec(dllexport) IMod* BMLEntry(IBML* bml);

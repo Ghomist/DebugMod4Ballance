@@ -1,4 +1,4 @@
-#include "DebugMod.h"
+#include "../DebugMod.h"
 
 #include "ListDataWindow.h"
 
