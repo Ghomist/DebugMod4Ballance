@@ -53,7 +53,7 @@ long __stdcall hkEndScene(LPDIRECT3DDEVICE9 pDevice) {
 		init = true;
 	}
 
-	DebugMod::GetActiveInstance()->Logger()->Info("%s", init ? "yes" : "no");
+	// DebugMod::GetActiveInstance()->Logger()->Info("%s", init ? "yes" : "no");
 
 	// Start the Dear ImGui frame
 	ImGui_ImplDX9_NewFrame();
