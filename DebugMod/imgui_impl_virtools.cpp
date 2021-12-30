@@ -40,7 +40,7 @@ int kieroExampleThread() {
 			//}
 
 			// If you just need to get the function address you can use the kiero::getMethodsTable function
-			//oEndScene = (EndScene)kiero::getMethodsTable()[42];
+			// oEndScene = (EndScene)kiero::getMethodsTable()[42];
 		}
 	} while (!hooked);
 
@@ -52,6 +52,8 @@ long __stdcall hkEndScene(LPDIRECT3DDEVICE9 pDevice) {
 		InitImGui(pDevice);
 		init = true;
 	}
+
+	DebugMod::GetActiveInstance()->Logger()->Info("%s", init ? "yes" : "no");
 
 	// Start the Dear ImGui frame
 	ImGui_ImplDX9_NewFrame();

@@ -126,6 +126,30 @@
     <ClInclude Include="..\submodules\kiero\minhook\src\hde\table64.h">
       <Filter>kiero\minhook</Filter>
     </ClInclude>
+    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\d3d9_impl.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\d3d10_impl.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\d3d11_impl.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\shared.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\win32_impl.h">
+      <Filter>kiero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\imgui\misc\cpp\imgui_stdlib.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\imgui\backends\imgui_impl_dx10.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\submodules\imgui\backends\imgui_impl_dx11.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DebugMod.cpp">
@@ -206,6 +230,30 @@
     <ClCompile Include="..\submodules\kiero\minhook\src\hde\hde64.c">
       <Filter>kiero\minhook</Filter>
     </ClCompile>
+    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\d3d9_impl.cpp">
+      <Filter>kiero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\d3d10_impl.cpp">
+      <Filter>kiero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\d3d11_impl.cpp">
+      <Filter>kiero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\shared.cpp">
+      <Filter>kiero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\win32_impl.cpp">
+      <Filter>kiero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\imgui\misc\cpp\imgui_stdlib.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\imgui\backends\imgui_impl_dx10.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\submodules\imgui\backends\imgui_impl_dx11.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="d3d8.dll">
@@ -217,10 +265,40 @@
     <None Include="..\submodules\kiero\minhook\dll_resources\MinHook.def">
       <Filter>kiero\minhook</Filter>
     </None>
+    <None Include="..\submodules\kiero\minhook\.editorconfig">
+      <Filter>kiero\minhook</Filter>
+    </None>
+    <None Include="..\submodules\kiero\minhook\.git">
+      <Filter>kiero\minhook</Filter>
+    </None>
+    <None Include="..\submodules\kiero\minhook\.gitignore">
+      <Filter>kiero\minhook</Filter>
+    </None>
+    <None Include="..\submodules\kiero\minhook\README.md">
+      <Filter>kiero\minhook</Filter>
+    </None>
+    <None Include="..\submodules\kiero\LICENSE">
+      <Filter>kiero</Filter>
+    </None>
+    <None Include="..\submodules\imgui\backends\vulkan\generate_spv.sh">
+      <Filter>imgui</Filter>
+    </None>
+    <None Include="..\submodules\imgui\backends\vulkan\glsl_shader.frag">
+      <Filter>imgui</Filter>
+    </None>
+    <None Include="..\submodules\imgui\backends\vulkan\glsl_shader.vert">
+      <Filter>imgui</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt">
       <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="..\submodules\kiero\minhook\AUTHORS.txt">
+      <Filter>kiero\minhook</Filter>
+    </Text>
+    <Text Include="..\submodules\kiero\minhook\LICENSE.txt">
+      <Filter>kiero\minhook</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>

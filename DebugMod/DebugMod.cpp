@@ -12,6 +12,10 @@ IMod* BMLEntry(IBML* bml) {
 	return new DebugMod(bml);
 }
 
+ILogger* DebugMod::Logger() {
+	return GetLogger();
+}
+
 bool DebugMod::ReachNextProcess() {
 	_current_time = _time_manager->GetTime();
 	if (_current_time > _last_time + _time_limit) {
@@ -146,19 +150,17 @@ void DebugMod::OnLoad() {
 }
 
 void DebugMod::OnStartLevel() {
-	m_curve = (CKCurve*)m_bml->GetCKContext()->CreateObject(CKCID_CURVE, "unique curve");
+	// m_curve = (CKCurve*)m_bml->GetCKContext()->CreateObject(CKCID_CURVE, "unique curve");
 	// (CKCurve*)m_bml->GetCKContext()->GetObjectByName("unique curve");
 }
 
 void DebugMod::OnProcess() {
+	// Every frame
 	ProcessGuiInput();
 
 	if (!m_bml->IsPlaying()) return;
-
+	// While playing
 	m_bml->GetInputManager()->ShowCursor(TRUE);
-	//return;
-
-	return;
 }
 
 

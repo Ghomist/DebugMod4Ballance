@@ -11,6 +11,7 @@ class DebugMod : public IMod {
 public:
 	DebugMod(IBML* bml) : IMod(bml) { this_instance_ = this; }
 
+	ILogger* Logger();
 	bool ReachNextProcess();
 	unsigned char* GetKeyboardState();
 	CK3dEntity* GetEntity(CKSTRING name);

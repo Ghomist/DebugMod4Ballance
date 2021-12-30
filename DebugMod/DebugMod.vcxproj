@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\submodules\imgui\backends\imgui_impl_dx10.h" />
+    <ClInclude Include="..\submodules\imgui\backends\imgui_impl_dx11.h" />
     <ClInclude Include="..\submodules\imgui\backends\imgui_impl_dx9.h" />
     <ClInclude Include="..\submodules\imgui\backends\imgui_impl_win32.h" />
     <ClInclude Include="..\submodules\imgui\imconfig.h" />
@@ -27,6 +29,12 @@
     <ClInclude Include="..\submodules\imgui\imstb_rectpack.h" />
     <ClInclude Include="..\submodules\imgui\imstb_textedit.h" />
     <ClInclude Include="..\submodules\imgui\imstb_truetype.h" />
+    <ClInclude Include="..\submodules\imgui\misc\cpp\imgui_stdlib.h" />
+    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\d3d10_impl.h" />
+    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\d3d11_impl.h" />
+    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\d3d9_impl.h" />
+    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\shared.h" />
+    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\win32_impl.h" />
     <ClInclude Include="..\submodules\kiero\kiero.h" />
     <ClInclude Include="..\submodules\kiero\minhook\include\MinHook.h" />
     <ClInclude Include="..\submodules\kiero\minhook\src\buffer.h" />
@@ -52,6 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\imgui-1.85\imgui_demo.cpp" />
+    <ClCompile Include="..\submodules\imgui\backends\imgui_impl_dx10.cpp" />
+    <ClCompile Include="..\submodules\imgui\backends\imgui_impl_dx11.cpp" />
     <ClCompile Include="..\submodules\imgui\backends\imgui_impl_dx9.cpp" />
     <ClCompile Include="..\submodules\imgui\backends\imgui_impl_win32.cpp" />
     <ClCompile Include="..\submodules\imgui\imgui.cpp" />
@@ -59,6 +69,12 @@
     <ClCompile Include="..\submodules\imgui\imgui_draw.cpp" />
     <ClCompile Include="..\submodules\imgui\imgui_tables.cpp" />
     <ClCompile Include="..\submodules\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="..\submodules\imgui\misc\cpp\imgui_stdlib.cpp" />
+    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\d3d10_impl.cpp" />
+    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\d3d11_impl.cpp" />
+    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\d3d9_impl.cpp" />
+    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\shared.cpp" />
+    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\win32_impl.cpp" />
     <ClCompile Include="..\submodules\kiero\kiero.cpp" />
     <ClCompile Include="..\submodules\kiero\minhook\src\buffer.c" />
     <ClCompile Include="..\submodules\kiero\minhook\src\hde\hde32.c" />
@@ -79,11 +95,21 @@
     <ClCompile Include="View\ListDataWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\submodules\imgui\backends\vulkan\generate_spv.sh" />
+    <None Include="..\submodules\imgui\backends\vulkan\glsl_shader.frag" />
+    <None Include="..\submodules\imgui\backends\vulkan\glsl_shader.vert" />
+    <None Include="..\submodules\kiero\LICENSE" />
+    <None Include="..\submodules\kiero\minhook\.editorconfig" />
+    <None Include="..\submodules\kiero\minhook\.git" />
+    <None Include="..\submodules\kiero\minhook\.gitignore" />
     <None Include="..\submodules\kiero\minhook\dll_resources\MinHook.def" />
+    <None Include="..\submodules\kiero\minhook\README.md" />
     <None Include="d3d8.dll" />
     <None Include="enbconvertor.ini" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="..\submodules\kiero\minhook\AUTHORS.txt" />
+    <Text Include="..\submodules\kiero\minhook\LICENSE.txt" />
     <Text Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
