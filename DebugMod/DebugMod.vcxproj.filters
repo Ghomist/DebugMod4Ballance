@@ -126,21 +126,6 @@
     <ClInclude Include="..\submodules\kiero\minhook\src\hde\table64.h">
       <Filter>kiero\minhook</Filter>
     </ClInclude>
-    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\d3d9_impl.h">
-      <Filter>kiero</Filter>
-    </ClInclude>
-    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\d3d10_impl.h">
-      <Filter>kiero</Filter>
-    </ClInclude>
-    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\d3d11_impl.h">
-      <Filter>kiero</Filter>
-    </ClInclude>
-    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\shared.h">
-      <Filter>kiero</Filter>
-    </ClInclude>
-    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\win32_impl.h">
-      <Filter>kiero</Filter>
-    </ClInclude>
     <ClInclude Include="..\submodules\imgui\misc\cpp\imgui_stdlib.h">
       <Filter>imgui</Filter>
     </ClInclude>
@@ -149,6 +134,9 @@
     </ClInclude>
     <ClInclude Include="..\submodules\imgui\backends\imgui_impl_dx11.h">
       <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui_impl_virtools.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -229,21 +217,6 @@
     </ClCompile>
     <ClCompile Include="..\submodules\kiero\minhook\src\hde\hde64.c">
       <Filter>kiero\minhook</Filter>
-    </ClCompile>
-    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\d3d9_impl.cpp">
-      <Filter>kiero</Filter>
-    </ClCompile>
-    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\d3d10_impl.cpp">
-      <Filter>kiero</Filter>
-    </ClCompile>
-    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\d3d11_impl.cpp">
-      <Filter>kiero</Filter>
-    </ClCompile>
-    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\shared.cpp">
-      <Filter>kiero</Filter>
-    </ClCompile>
-    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\win32_impl.cpp">
-      <Filter>kiero</Filter>
     </ClCompile>
     <ClCompile Include="..\submodules\imgui\misc\cpp\imgui_stdlib.cpp">
       <Filter>imgui</Filter>

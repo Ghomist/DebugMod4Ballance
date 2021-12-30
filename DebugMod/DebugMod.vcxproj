@@ -30,11 +30,6 @@
     <ClInclude Include="..\submodules\imgui\imstb_textedit.h" />
     <ClInclude Include="..\submodules\imgui\imstb_truetype.h" />
     <ClInclude Include="..\submodules\imgui\misc\cpp\imgui_stdlib.h" />
-    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\d3d10_impl.h" />
-    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\d3d11_impl.h" />
-    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\d3d9_impl.h" />
-    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\shared.h" />
-    <ClInclude Include="..\submodules\kiero\examples\imgui\impl\win32_impl.h" />
     <ClInclude Include="..\submodules\kiero\kiero.h" />
     <ClInclude Include="..\submodules\kiero\minhook\include\MinHook.h" />
     <ClInclude Include="..\submodules\kiero\minhook\src\buffer.h" />
@@ -46,6 +41,7 @@
     <ClInclude Include="..\submodules\kiero\minhook\src\trampoline.h" />
     <ClInclude Include="DebugCmd.h" />
     <ClInclude Include="DebugMod.h" />
+    <ClInclude Include="imgui_impl_virtools.h" />
     <ClInclude Include="Include.h" />
     <ClInclude Include="ImGuiSetup.h" />
     <ClInclude Include="View\AllView.h" />
@@ -70,11 +66,6 @@
     <ClCompile Include="..\submodules\imgui\imgui_tables.cpp" />
     <ClCompile Include="..\submodules\imgui\imgui_widgets.cpp" />
     <ClCompile Include="..\submodules\imgui\misc\cpp\imgui_stdlib.cpp" />
-    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\d3d10_impl.cpp" />
-    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\d3d11_impl.cpp" />
-    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\d3d9_impl.cpp" />
-    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\shared.cpp" />
-    <ClCompile Include="..\submodules\kiero\examples\imgui\impl\win32_impl.cpp" />
     <ClCompile Include="..\submodules\kiero\kiero.cpp" />
     <ClCompile Include="..\submodules\kiero\minhook\src\buffer.c" />
     <ClCompile Include="..\submodules\kiero\minhook\src\hde\hde32.c" />

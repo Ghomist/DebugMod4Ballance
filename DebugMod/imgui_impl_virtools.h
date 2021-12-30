@@ -1,11 +1,13 @@
 #pragma once
 
+#include "Include.h"
+
 #include <d3d9.h>
 #include <d3dx9.h>
 
 #include "imgui.h"
 
-#include "kiero.h"
+// #include "kiero.h"
 #include "minhook/include/MinHook.h"
 
 typedef long(__stdcall* EndScene)(LPDIRECT3DDEVICE9);
