@@ -229,12 +229,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="d3d8.dll">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="enbconvertor.ini">
-      <Filter>资源文件</Filter>
-    </None>
     <None Include="..\submodules\kiero\minhook\dll_resources\MinHook.def">
       <Filter>kiero\minhook</Filter>
     </None>
@@ -262,11 +256,14 @@
     <None Include="..\submodules\imgui\backends\vulkan\glsl_shader.vert">
       <Filter>imgui</Filter>
     </None>
+    <None Include="d3d8\d3d8.dll">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="d3d8\enbconvertor.ini">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="TODO.txt">
-      <Filter>资源文件</Filter>
-    </Text>
     <Text Include="..\submodules\kiero\minhook\AUTHORS.txt">
       <Filter>kiero\minhook</Filter>
     </Text>

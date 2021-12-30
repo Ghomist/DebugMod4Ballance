@@ -95,13 +95,12 @@
     <None Include="..\submodules\kiero\minhook\.gitignore" />
     <None Include="..\submodules\kiero\minhook\dll_resources\MinHook.def" />
     <None Include="..\submodules\kiero\minhook\README.md" />
-    <None Include="d3d8.dll" />
-    <None Include="enbconvertor.ini" />
+    <None Include="d3d8\d3d8.dll" />
+    <None Include="d3d8\enbconvertor.ini" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\submodules\kiero\minhook\AUTHORS.txt" />
     <Text Include="..\submodules\kiero\minhook\LICENSE.txt" />
-    <Text Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\submodules\kiero\minhook\dll_resources\MinHook.rc" />

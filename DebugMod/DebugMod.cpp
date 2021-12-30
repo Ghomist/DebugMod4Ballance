@@ -161,8 +161,8 @@ void DebugMod::OnProcess() {
 	if (!m_bml->IsPlaying()) return;
 	// While playing
 	m_bml->GetInputManager()->ShowCursor(TRUE);
-}
 
+}
 
 VxVector pos = VxVector(0, 0, 0);
 void DebugMod::OnRender(CK_RENDER_FLAGS flags) {

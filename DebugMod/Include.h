@@ -16,3 +16,4 @@
 // #include "minhook/include/MinHook.h"
 
 #include <kiero.h>
+// Remember to change define in kireo.h

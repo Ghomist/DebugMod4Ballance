@@ -61,10 +61,22 @@ void ListDataWindow::Render() {
 			}
 			ImGui::EndChild();
 		}
-		if (ImGui::Button("Open window")) {
+		if (ImGui::Button("Inspect")) {
 			OpenWindow();
 		}
-		//ImGui::SameLine();
+		ImGui::SameLine();
+		if (ImGui::Button("Duplicate")) {
+			// TODO
+		}
+		ImGui::SameLine();
+		if (ImGui::Button("Destroy")) {
+			_context->DestroyObject(
+				_context->GetObjectByNameAndClass(
+					name_list[selected_obj].c_str(),
+					CKStringToClassID(all_type[selected_type])
+				)
+			);
+		}
 		ImGui::EndGroup();
 	}
 
@@ -76,21 +88,25 @@ const char* ListDataWindow::GetObjectName() {
 }
 
 void ListDataWindow::OpenWindow() {
-	if (selected_type == 0)
+	switch (selected_type) {
+	case 0:
 		DebugMod::GetActiveInstance()->AddDataWindow(new EntityDataWindow(
 			(CK3dEntity*)_context->GetObjectByNameAndClass(
 				name_list[selected_obj].c_str(),
 				CKStringToClassID(all_type[selected_type])
 			)
 		));
-	if (selected_type == 1)
+		break;
+	case 1:
 		DebugMod::GetActiveInstance()->AddDataWindow(new ArrayDataWindow(
 			(CKDataArray*)_context->GetObjectByNameAndClass(
 				name_list[selected_obj].c_str(),
 				CKStringToClassID(all_type[selected_type])
 			)
 		));
-	if (selected_type == 2 || selected_type == 3)
+		break;
+	case 2:
+	case 3:
 		DebugMod::GetActiveInstance()->AddDataWindow(new CameraDataWindow(
 			(CKCamera*)_context->GetObjectByNameAndClass(
 				name_list[selected_obj].c_str(),
@@ -98,14 +114,17 @@ void ListDataWindow::OpenWindow() {
 			),
 			selected_type == 3
 		));
-	if (selected_type == 4)
+		break;
+	case 4:
 		DebugMod::GetActiveInstance()->AddDataWindow(new GroupDataWindow(
 			(CKGroup*)_context->GetObjectByNameAndClass(
 				name_list[selected_obj].c_str(),
 				CKStringToClassID(all_type[selected_type])
 			)
 		));
-	if (selected_type == 5 || selected_type == 6)
+		break;
+	case 5:
+	case 6:
 		DebugMod::GetActiveInstance()->AddDataWindow(new LightDataWindow(
 			(CKLight*)_context->GetObjectByNameAndClass(
 				name_list[selected_obj].c_str(),
@@ -113,6 +132,8 @@ void ListDataWindow::OpenWindow() {
 			),
 			selected_type == 6
 		));
+		break;
+	}
 }
 
 void ListDataWindow::Fresh() {

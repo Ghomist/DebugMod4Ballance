@@ -101,7 +101,7 @@ void RenderMainMenuBar() {
 
 			ImGui::Separator();
 			if (ImGui::BeginMenu("GUI Style")) {
-				if (ImGui::MenuItem("Default")) ImGui::StyleColorsClassic();
+				if (ImGui::MenuItem("Classic")) ImGui::StyleColorsClassic();
 				if (ImGui::MenuItem("Light")) ImGui::StyleColorsLight();
 				if (ImGui::MenuItem("Dark")) ImGui::StyleColorsDark();
 				ImGui::EndMenu();
