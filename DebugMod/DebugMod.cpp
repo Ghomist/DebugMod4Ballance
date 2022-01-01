@@ -83,6 +83,36 @@ void DebugMod::SetFog(VXFOG_MODE mode, float start, float end, float density, in
 }
 
 void DebugMod::OnLoadObject(CKSTRING filename, BOOL isMap, CKSTRING masterName, CK_CLASSID filterClass, BOOL addtoscene, BOOL reuseMeshes, BOOL reuseMaterials, BOOL dynamic, XObjectArray* objArray, CKObject* masterObj) {
+	if (isMap) {
+		if (display_trafo_trigger) {
+			CK3dObject* oDisplay = m_bml->Get3dObjectByName("Triger_display");
+			if (oDisplay == nullptr) return;
+
+			CK_OBJECTCREATION_OPTIONS opt = /*CK_OBJECTCREATION_DYNAMIC |*/ CK_OBJECTCREATION_RENAME;
+			// CKDependencies* dep;
+
+			std::string all_trafos[] = { "P_Trafo_Wood", "P_Trafo_Paper", "P_Trafo_Stone" };
+			// Find all trafos
+			for (int t = 0; t < 3; ++t) {
+				CKGroup* trafos = m_bml->GetGroupByName(all_trafos[t].c_str());
+
+				for (int i = 0; i < trafos->GetObjectCount(); ++i) {
+					CK3dObject* obj = (CK3dObject*)trafos->GetObject(i);
+					if (obj == nullptr) continue;
+
+					// Get position
+					VxVector pos;
+					obj->GetPosition(&pos);
+
+					// Set display
+					CK3dObject* cp = (CK3dObject*)m_bml->GetCKContext()->CopyObject(oDisplay, 0, 0, CK_OBJECTCREATION_DYNAMIC);
+					cp->SetPosition(pos);
+					cp->GetCurrentMesh()->GetMaterial(0)->SetDiffuse(VxColor(0, 0, 0, 0));
+					cp->Show();
+				}
+			}
+		}
+	}
 	// Display all the loaded files
 	GetLogger()->Info(filename);
 }
@@ -103,15 +133,19 @@ void DebugMod::OnLoad() {
 	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)kieroExampleThread, NULL, 0, NULL); // Hook thread
 
 	// Load rsc
-	XString filename("3D Entities\\PH\\TrafoTriggerDisplay.nmo");
-	m_bml->GetPathManager()->ResolveFileName(filename, DATA_PATH_IDX, -1);
-	if (CKERROR err = m_bml->GetCKContext()->Load(filename.Str(), all_trafo_display) != CK_OK)
-		GetLogger()->Error("%d", (int)err);
-	else
+	XString filename(".\\3D Entities\\PH\\TrafoTriggerDisplay.nmo");
+	CKObjectArray* all_trafo_display = CreateCKObjectArray();
+	m_bml->GetPathManager()->ResolveFileName(filename, DATA_PATH_IDX, -1); // Resolve
+	CKERROR err = m_bml->GetCKContext()->Load(filename.Str(), all_trafo_display);
+	if (err == CK_OK)
 		GetLogger()->Info("Load successfully!");
+	else
+		GetLogger()->Error("%d", err);
 }
 
 void DebugMod::OnStartLevel() {}
+
+void DebugMod::OnPostLoadLevel() {}
 
 void DebugMod::OnProcess() {
 	// Every frame

@@ -40,6 +40,8 @@ public:
 	void ShowMainMenu();
 	void HideMainMenu();
 
+	bool* TrafoDisplay() { return &display_trafo_trigger; }
+
 	bool ReachNextProcess();
 
 	virtual CKSTRING GetID() override { return "DebugMod"; }
@@ -53,6 +55,7 @@ public:
 		BOOL dynamic, XObjectArray* objArray, CKObject* masterObj) override;
 	virtual void OnLoad() override;
 	virtual void OnStartLevel() override;
+	virtual void OnPostLoadLevel() override;
 	virtual void OnRender(CK_RENDER_FLAGS flags) override;
 	virtual void OnProcess() override;
 	virtual void OnExitGame() override;
@@ -73,5 +76,5 @@ private:
 
 	bool show_main_menu = true;
 
-	CKObjectArray* all_trafo_display = CreateCKObjectArray();
+	bool display_trafo_trigger = true;
 };
