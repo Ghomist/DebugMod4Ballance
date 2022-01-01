@@ -12,10 +12,6 @@ IMod* BMLEntry(IBML* bml) {
 	return new DebugMod(bml);
 }
 
-ILogger* DebugMod::Logger() {
-	return GetLogger();
-}
-
 bool DebugMod::ReachNextProcess() {
 	_current_time = _time_manager->GetTime();
 	if (_current_time > _last_time + _time_limit) {
@@ -23,22 +19,6 @@ bool DebugMod::ReachNextProcess() {
 		return true;
 	}
 	return false;
-}
-
-unsigned char* DebugMod::GetKeyboardState() {
-	return m_bml->GetInputManager()->GetKeyboardState();
-}
-
-CK3dEntity* DebugMod::GetEntity(CKSTRING name) {
-	return m_bml->Get3dObjectByName(name);
-}
-
-CKDataArray* DebugMod::GetArray(CKSTRING name) {
-	return m_bml->GetArrayByName(name);
-}
-
-CKGroup* DebugMod::GetGroup(CKSTRING name) {
-	return m_bml->GetGroupByName(name);
 }
 
 void DebugMod::AddDataWindow(DataWindow* _data) {
@@ -52,40 +32,12 @@ void DebugMod::PopDataWindow(int index) {
 
 void DebugMod::PopAllDataWindows() {
 	for (DataWindow* win : all_data_windows)
-		delete win;
+		delete win; // Release?
 	all_data_windows.clear();
 }
 
 std::vector<DataWindow*> DebugMod::GetAllDataWindows() {
 	return all_data_windows;
-}
-
-CKContext* DebugMod::GetCKContext() {
-	return m_bml->GetCKContext();
-}
-
-CKRenderContext* DebugMod::GetCKRenderContext() {
-	return m_bml->GetRenderContext();
-}
-
-CKCollisionManager* DebugMod::GetCollisionManager() {
-	return m_bml->GetCollisionManager();
-}
-
-CKInputManager* DebugMod::GetInputManager() {
-	return m_bml->GetInputManager();
-}
-
-float DebugMod::GetTime() {
-	return _time_manager->GetTime();
-}
-
-float DebugMod::GetLastDeltaTime() {
-	return _time_manager->GetLastDeltaTime();
-}
-
-DebugMod* DebugMod::GetActiveInstance() {
-	return this_instance_;
 }
 
 bool DebugMod::IsActiveMainMenu() {
@@ -102,11 +54,6 @@ void DebugMod::HideMainMenu() {
 
 void DebugMod::SetGlobalShadeMode(VxShadeType type, bool textures, bool wireframe) {
 	m_bml->GetRenderContext()->SetGlobalRenderMode(type, textures, wireframe);
-	// m_bml->GetRenderContext()->Render();
-}
-
-CKDWORD DebugMod::GetCurrentRenderOptions() {
-	return m_bml->GetRenderContext()->GetCurrentRenderOptions();
 }
 
 void DebugMod::SetCurrentRenderOptions(CKDWORD flags) {
@@ -135,24 +82,36 @@ void DebugMod::SetFog(VXFOG_MODE mode, float start, float end, float density, in
 	rc->SetFogColor(color);
 }
 
-void DebugMod::OnLoad() {
-	GetLogger()->Info(GetDescription());
-	GetLogger()->Info(GetAuthor());
+void DebugMod::OnLoadObject(CKSTRING filename, BOOL isMap, CKSTRING masterName, CK_CLASSID filterClass, BOOL addtoscene, BOOL reuseMeshes, BOOL reuseMaterials, BOOL dynamic, XObjectArray* objArray, CKObject* masterObj) {
+	// Display all the loaded files
+	GetLogger()->Info(filename);
+}
 
+void DebugMod::OnLoad() {
+	// Info
+	GetLogger()->Info("Loading Debug Mod for Ballance");
+
+	// Configuration
 	// props[0] = GetConfig()->GetProperty("Integers", "open_tips")
 
+	// Commands
 	m_bml->RegisterCommand(new DebugCmd());
 	m_bml->RegisterCommand(new ImGuiSetup());
 
-	window = (HWND)m_bml->GetRenderContext()->GetWindowHandle();
-	// ?
-	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)kieroExampleThread, NULL, 0, NULL);
+	// Create thread to setup render hook
+	window = (HWND)m_bml->GetRenderContext()->GetWindowHandle(); // Get window's handle
+	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)kieroExampleThread, NULL, 0, NULL); // Hook thread
+
+	// Load rsc
+	XString filename("3D Entities\\PH\\TrafoTriggerDisplay.nmo");
+	m_bml->GetPathManager()->ResolveFileName(filename, DATA_PATH_IDX, -1);
+	if (CKERROR err = m_bml->GetCKContext()->Load(filename.Str(), all_trafo_display) != CK_OK)
+		GetLogger()->Error("%d", (int)err);
+	else
+		GetLogger()->Info("Load successfully!");
 }
 
-void DebugMod::OnStartLevel() {
-	// m_curve = (CKCurve*)m_bml->GetCKContext()->CreateObject(CKCID_CURVE, "unique curve");
-	// (CKCurve*)m_bml->GetCKContext()->GetObjectByName("unique curve");
-}
+void DebugMod::OnStartLevel() {}
 
 void DebugMod::OnProcess() {
 	// Every frame
@@ -161,18 +120,11 @@ void DebugMod::OnProcess() {
 	if (!m_bml->IsPlaying()) return;
 	// While playing
 	m_bml->GetInputManager()->ShowCursor(TRUE);
-
 }
 
-VxVector pos = VxVector(0, 0, 0);
-void DebugMod::OnRender(CK_RENDER_FLAGS flags) {
-	// if (!m_bml->IsPlaying()) return;
-	// CK3dObject* player_ball = m_bml->Get3dObjectByName("Ball_Wood");
-	// player_ball->GetPosition(&pos);
-	// m_bml->GetRenderManager()->RegisterPoint(pos, 0);
-	// m_bml->GetRenderManager()->DrawPoint(m_bml->GetRenderContext(), VxVector(0, 0, 0), 0);
-}
+void DebugMod::OnRender(CK_RENDER_FLAGS flags) {}
 
 void DebugMod::OnExitGame() {
+	// Remove all files
 	// std::filesystem::remove("..\\ModLoader\\Cache\\Mods\\DebugMod.zip\\");
 }
