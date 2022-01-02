@@ -114,12 +114,12 @@ void DebugMod::OnLoadObject(CKSTRING filename, BOOL isMap, CKSTRING masterName, 
 		}
 	}
 	// Display all the loaded files
-	GetLogger()->Info(filename);
+	// GetLogger()->Info(filename);
 }
 
 void DebugMod::OnLoad() {
 	// Info
-	GetLogger()->Info("Loading Debug Mod for Ballance");
+	GetLogger()->Info("Loading [Debug Mod] for Ballance");
 
 	// Configuration
 	// props[0] = GetConfig()->GetProperty("Integers", "open_tips")
@@ -132,15 +132,19 @@ void DebugMod::OnLoad() {
 	window = (HWND)m_bml->GetRenderContext()->GetWindowHandle(); // Get window's handle
 	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)kieroExampleThread, NULL, 0, NULL); // Hook thread
 
-	// Load rsc
-	XString filename(".\\3D Entities\\PH\\TrafoTriggerDisplay.nmo");
-	CKObjectArray* all_trafo_display = CreateCKObjectArray();
+	GetLogger()->Info("Loading resources..."); // Load rsc
+	LoadResource("3D Entities\\PH\\TrafoTriggerDisplay.nmo", all_triger_display);
+	LoadResource("3D Entities\\Trace.nmo", all_trace);
+}
+
+void DebugMod::LoadResource(XString filename, CKObjectArray* arr) {
+	XString oName(filename);
 	m_bml->GetPathManager()->ResolveFileName(filename, DATA_PATH_IDX, -1); // Resolve
-	CKERROR err = m_bml->GetCKContext()->Load(filename.Str(), all_trafo_display);
+	CKERROR err = m_bml->GetCKContext()->Load(filename.Str(), arr);
 	if (err == CK_OK)
-		GetLogger()->Info("Load successfully!");
+		GetLogger()->Info("%s loaded", oName.Str());
 	else
-		GetLogger()->Error("%d", err);
+		GetLogger()->Error("%s: %d", oName.Str(), err);
 }
 
 void DebugMod::OnStartLevel() {}

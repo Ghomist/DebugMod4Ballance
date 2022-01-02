@@ -54,6 +54,7 @@ public:
 		CK_CLASSID filterClass, BOOL addtoscene, BOOL reuseMeshes, BOOL reuseMaterials,
 		BOOL dynamic, XObjectArray* objArray, CKObject* masterObj) override;
 	virtual void OnLoad() override;
+	void LoadResource(XString filename, CKObjectArray* arr);
 	virtual void OnStartLevel() override;
 	virtual void OnPostLoadLevel() override;
 	virtual void OnRender(CK_RENDER_FLAGS flags) override;
@@ -77,4 +78,7 @@ private:
 	bool show_main_menu = true;
 
 	bool display_trafo_trigger = true;
+
+	CKObjectArray* all_triger_display = CreateCKObjectArray();
+	CKObjectArray* all_trace = CreateCKObjectArray();
 };

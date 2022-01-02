@@ -200,6 +200,9 @@
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>$(ProjectDir)..\BML-0.3.40-dev\lib\Debug\BML.lib;%(AdditionalDependencies);d3d9.lib;d3dx9.lib</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>::for /r $(OutputPath) %%a in (*.cmo) do rename %%a *.nmo</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
