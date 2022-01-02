@@ -11,8 +11,8 @@ class DebugMod : public IMod {
 public:
 	DebugMod(IBML* bml) : IMod(bml) { this_instance_ = this; }
 
+	// Basic
 	ILogger* Logger() { return GetLogger(); }
-
 	CK3dEntity* GetEntity(CKSTRING name) { return m_bml->Get3dObjectByName(name); }
 	CKDataArray* GetArray(CKSTRING name) { return m_bml->GetArrayByName(name); }
 	CKGroup* GetGroup(CKSTRING name) { return m_bml->GetGroupByName(name); }
@@ -20,29 +20,46 @@ public:
 	CKRenderContext* GetCKRenderContext() { return m_bml->GetRenderContext(); }
 	CKCollisionManager* GetCollisionManager() { return m_bml->GetCollisionManager(); }
 	CKInputManager* GetInputManager() { return m_bml->GetInputManager(); }
-
 	unsigned char* GetKeyboardState() { return m_bml->GetInputManager()->GetKeyboardState(); }
 	CKDWORD GetCurrentRenderOptions() { return m_bml->GetRenderContext()->GetCurrentRenderOptions(); }
 	float GetTime() { return _time_manager->GetTime(); }
 	float GetLastDeltaTime() { return _time_manager->GetLastDeltaTime(); }
 
+	// Render options
 	void SetGlobalShadeMode(VxShadeType type, bool textures, bool wireframe);
 	void SetCurrentRenderOptions(CKDWORD flags);
 	CKDWORD GetAmbientLight();
 	void SetAmbientLight(float r, float g, float b);
 	void SetFog(VXFOG_MODE mode, float start, float end, float density, int a, int r, int g, int b);
 
+	// imgui
+	void RenderAll();
 	void AddDataWindow(DataWindow* _data);
 	void PopDataWindow(int index);
 	void PopAllDataWindows();
 	std::vector<DataWindow*> GetAllDataWindows();
-	bool IsActiveMainMenu();
-	void ShowMainMenu();
-	void HideMainMenu();
+	bool* MainMenuEnable() { return &show_main_menu; }
 
+	// Trafo display
 	bool* TrafoDisplay() { return &display_trafo_trigger; }
 
+	// Control
+	static DebugMod* GetActiveInstance() { return this_instance_; }
 	bool ReachNextProcess();
+
+	// RSC
+	void LoadResource(XString filename, CKObjectArray* arr);
+
+	// On events
+	virtual void OnLoadObject(CKSTRING filename, BOOL isMap, CKSTRING masterName,
+		CK_CLASSID filterClass, BOOL addtoscene, BOOL reuseMeshes, BOOL reuseMaterials,
+		BOOL dynamic, XObjectArray* objArray, CKObject* masterObj) override;
+	virtual void OnLoad() override;
+	virtual void OnStartLevel() override;
+	virtual void OnPostLoadLevel() override;
+	virtual void OnRender(CK_RENDER_FLAGS flags) override;
+	virtual void OnProcess() override;
+	virtual void OnExitGame() override;
 
 	virtual CKSTRING GetID() override { return "DebugMod"; }
 	virtual CKSTRING GetVersion() override { return BML_VERSION; }
@@ -50,18 +67,6 @@ public:
 	virtual CKSTRING GetAuthor() override { return "Ghomist"; }
 	virtual CKSTRING GetDescription() override { return "Debugger of Ballance Developer."; }
 	DECLARE_BML_VERSION;
-	virtual void OnLoadObject(CKSTRING filename, BOOL isMap, CKSTRING masterName,
-		CK_CLASSID filterClass, BOOL addtoscene, BOOL reuseMeshes, BOOL reuseMaterials,
-		BOOL dynamic, XObjectArray* objArray, CKObject* masterObj) override;
-	virtual void OnLoad() override;
-	void LoadResource(XString filename, CKObjectArray* arr);
-	virtual void OnStartLevel() override;
-	virtual void OnPostLoadLevel() override;
-	virtual void OnRender(CK_RENDER_FLAGS flags) override;
-	virtual void OnProcess() override;
-	virtual void OnExitGame() override;
-
-	static DebugMod* GetActiveInstance() { return this_instance_; }
 
 private:
 	// IProperty* props[2];

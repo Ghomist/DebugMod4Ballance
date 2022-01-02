@@ -34,6 +34,12 @@
     <Filter Include="kiero\minhook">
       <UniqueIdentifier>{53bc068d-6ac1-4700-857b-8a4e2f3eb33e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\impl">
+      <UniqueIdentifier>{9b08273a-ca6e-4444-b737-679072d7c3d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\impl">
+      <UniqueIdentifier>{bfbd6f60-4105-4839-99f4-b4d91a7528fb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DebugMod.h">
@@ -135,8 +141,11 @@
     <ClInclude Include="..\submodules\imgui\backends\imgui_impl_dx11.h">
       <Filter>imgui</Filter>
     </ClInclude>
-    <ClInclude Include="imgui_impl_virtools.h">
+    <ClInclude Include="MainMenu.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="impl\imgui_impl_virtools.h">
+      <Filter>头文件\impl</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -145,9 +154,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\imgui-1.85\imgui_demo.cpp">
       <Filter>源文件\sample</Filter>
-    </ClCompile>
-    <ClCompile Include="imgui_impl_virtools.cpp">
-      <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ImGuiSetup.cpp">
       <Filter>源文件</Filter>
@@ -226,6 +232,12 @@
     </ClCompile>
     <ClCompile Include="..\submodules\imgui\backends\imgui_impl_dx11.cpp">
       <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="impl\imgui_impl_virtools.cpp">
+      <Filter>源文件\impl</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

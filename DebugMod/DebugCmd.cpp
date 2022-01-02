@@ -9,7 +9,7 @@ void DebugCmd::Execute(IBML* bml, const std::vector<std::string>& args) {
 		}
 		// D list
 		else if (args[1] == "menu") {
-			DebugMod::GetActiveInstance()->ShowMainMenu();
+			*DebugMod::GetActiveInstance()->MainMenuEnable() = true;
 		}
 		else if (args[1] == "list") {
 			DebugMod::GetActiveInstance()->AddDataWindow(new ListDataWindow(bml->GetCKContext()));

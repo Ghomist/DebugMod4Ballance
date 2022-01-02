@@ -4,7 +4,8 @@
 #include "DebugCmd.h"
 #include "DebugMod.h"
 #include "ImGuiSetup.h"
-#include "imgui_impl_virtools.h"
+#include "MainMenu.h"
+#include "impl/imgui_impl_virtools.h"
 
 extern HWND window;
 
@@ -19,6 +20,21 @@ bool DebugMod::ReachNextProcess() {
 		return true;
 	}
 	return false;
+}
+
+void DebugMod::RenderAll() {
+	ImGui::NewFrame();
+
+	// Render main menu bar
+	if (show_main_menu) RenderMainMenuBar();
+
+	// Update and render all data windows
+	for (DataWindow* data : all_data_windows) {
+		data->Process();
+		data->Render();
+	}
+
+	ImGui::EndFrame();
 }
 
 void DebugMod::AddDataWindow(DataWindow* _data) {
@@ -40,20 +56,8 @@ std::vector<DataWindow*> DebugMod::GetAllDataWindows() {
 	return all_data_windows;
 }
 
-bool DebugMod::IsActiveMainMenu() {
-	return show_main_menu;
-}
-
-void DebugMod::ShowMainMenu() {
-	show_main_menu = true;
-}
-
-void DebugMod::HideMainMenu() {
-	show_main_menu = false;
-}
-
-void DebugMod::SetGlobalShadeMode(VxShadeType type, bool textures, bool wireframe) {
-	m_bml->GetRenderContext()->SetGlobalRenderMode(type, textures, wireframe);
+void DebugMod::SetGlobalShadeMode(VxShadeType type, bool use_textures, bool wireframe) {
+	m_bml->GetRenderContext()->SetGlobalRenderMode(type, use_textures, wireframe);
 }
 
 void DebugMod::SetCurrentRenderOptions(CKDWORD flags) {
@@ -83,35 +87,43 @@ void DebugMod::SetFog(VXFOG_MODE mode, float start, float end, float density, in
 }
 
 void DebugMod::OnLoadObject(CKSTRING filename, BOOL isMap, CKSTRING masterName, CK_CLASSID filterClass, BOOL addtoscene, BOOL reuseMeshes, BOOL reuseMaterials, BOOL dynamic, XObjectArray* objArray, CKObject* masterObj) {
-	if (isMap) {
-		if (display_trafo_trigger) {
-			CK3dObject* oDisplay = m_bml->Get3dObjectByName("Triger_display");
-			if (oDisplay == nullptr) return;
+	// Display trafo trigger
+	if (isMap && display_trafo_trigger) {
+		CK3dObject* oDisplay = m_bml->Get3dObjectByName("Triger_display");
+		CKTexture* t = m_bml->GetTextureByName("Triger_display_texture");
+		if (t == nullptr || oDisplay == nullptr) return;
 
-			CK_OBJECTCREATION_OPTIONS opt = /*CK_OBJECTCREATION_DYNAMIC |*/ CK_OBJECTCREATION_RENAME;
-			// CKDependencies* dep;
+		t->SetDesiredVideoFormat(_32_ARGB8888);
 
-			std::string all_trafos[] = { "P_Trafo_Wood", "P_Trafo_Paper", "P_Trafo_Stone" };
-			// Find all trafos
-			for (int t = 0; t < 3; ++t) {
-				CKGroup* trafos = m_bml->GetGroupByName(all_trafos[t].c_str());
+		// CK_OBJECTCREATION_OPTIONS opt = CK_OBJECTCREATION_DYNAMIC | CK_OBJECTCREATION_RENAME;
+		CKDependencies dep;
+		dep.Resize(40); dep.Fill(0);
+		dep.m_Flags = CK_DEPENDENCIES_CUSTOM;
+		dep[CKCID_OBJECT] = CK_DEPENDENCIES_COPY_OBJECT_NAME | CK_DEPENDENCIES_COPY_OBJECT_UNIQUENAME;
+		dep[CKCID_MESH] = CK_DEPENDENCIES_COPY_MESH_MATERIAL;
+		dep[CKCID_3DENTITY] = CK_DEPENDENCIES_COPY_3DENTITY_MESH;
 
-				for (int i = 0; i < trafos->GetObjectCount(); ++i) {
-					CK3dObject* obj = (CK3dObject*)trafos->GetObject(i);
-					if (obj == nullptr) continue;
+		// Find all trafos
+		std::string all_trafos[] = { "P_Trafo_Wood", "P_Trafo_Paper", "P_Trafo_Stone" };
+		for (int t = 0; t < 3; ++t) {
+			CKGroup* trafos = m_bml->GetGroupByName(all_trafos[t].c_str());
 
-					// Get position
-					VxVector pos;
-					obj->GetPosition(&pos);
+			for (int i = 0; i < trafos->GetObjectCount(); ++i) {
+				CK3dObject* obj = (CK3dObject*)trafos->GetObject(i);
+				if (obj == nullptr) continue;
 
-					// Set display
-					CK3dObject* cp = (CK3dObject*)m_bml->GetCKContext()->CopyObject(oDisplay, 0, 0, CK_OBJECTCREATION_DYNAMIC);
-					cp->SetPosition(pos);
-					cp->GetCurrentMesh()->GetMaterial(0)->SetDiffuse(VxColor(0, 0, 0, 0));
-					cp->Show();
-				}
+				// Get position
+				VxVector pos;
+				obj->GetPosition(&pos);
+
+				// Set display
+				CK3dObject* cp = (CK3dObject*)m_bml->GetCKContext()->CopyObject(oDisplay, &dep, "_copied"); // &dep, 0, CK_OBJECTCREATION_RENAME);
+				cp->SetPosition(pos);
+				//cp->GetCurrentMesh()->GetMaterial(0)->SetDiffuse(VxColor(0, 0, 0, 0));
+				cp->Show();
 			}
 		}
+		GetLogger()->Info("Trafo display enable");
 	}
 	// Display all the loaded files
 	// GetLogger()->Info(filename);
@@ -132,7 +144,7 @@ void DebugMod::OnLoad() {
 	window = (HWND)m_bml->GetRenderContext()->GetWindowHandle(); // Get window's handle
 	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)kieroExampleThread, NULL, 0, NULL); // Hook thread
 
-	GetLogger()->Info("Loading resources..."); // Load rsc
+	GetLogger()->Info("Loading resources..."); // Load RCS
 	LoadResource("3D Entities\\PH\\TrafoTriggerDisplay.nmo", all_triger_display);
 	LoadResource("3D Entities\\Trace.nmo", all_trace);
 }
@@ -147,22 +159,26 @@ void DebugMod::LoadResource(XString filename, CKObjectArray* arr) {
 		GetLogger()->Error("%s: %d", oName.Str(), err);
 }
 
-void DebugMod::OnStartLevel() {}
+void DebugMod::OnStartLevel() {
+	{ // Trace enable
+		m_bml->GetCKContext()->GetObjectByNameAndClass("Trace", CKCID_CURVE)->Show();
+		CKBehavior* beh = m_bml->GetScriptByName("Trace_script");
+		beh->Activate();
+		if (beh->IsActive())
+			GetLogger()->Info("Trace enable");
+	}
+}
 
 void DebugMod::OnPostLoadLevel() {}
 
 void DebugMod::OnProcess() {
-	// Every frame
-	ProcessGuiInput();
-
-	if (!m_bml->IsPlaying()) return;
-	// While playing
-	m_bml->GetInputManager()->ShowCursor(TRUE);
+	if (m_bml->IsPlaying())
+		m_bml->GetInputManager()->ShowCursor(TRUE);
 }
 
 void DebugMod::OnRender(CK_RENDER_FLAGS flags) {}
 
 void DebugMod::OnExitGame() {
-	// Remove all files
+	// Remove all cache files
 	// std::filesystem::remove("..\\ModLoader\\Cache\\Mods\\DebugMod.zip\\");
 }

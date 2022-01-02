@@ -41,9 +41,10 @@
     <ClInclude Include="..\submodules\kiero\minhook\src\trampoline.h" />
     <ClInclude Include="DebugCmd.h" />
     <ClInclude Include="DebugMod.h" />
-    <ClInclude Include="imgui_impl_virtools.h" />
+    <ClInclude Include="impl\imgui_impl_virtools.h" />
     <ClInclude Include="Include.h" />
     <ClInclude Include="ImGuiSetup.h" />
+    <ClInclude Include="MainMenu.h" />
     <ClInclude Include="View\AllView.h" />
     <ClInclude Include="View\ArrayDataWindow.h" />
     <ClInclude Include="View\CameraDataWindow.h" />
@@ -75,7 +76,8 @@
     <ClCompile Include="DebugCmd.cpp" />
     <ClCompile Include="DebugMod.cpp" />
     <ClCompile Include="ImGuiSetup.cpp" />
-    <ClCompile Include="imgui_impl_virtools.cpp" />
+    <ClCompile Include="impl\imgui_impl_virtools.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="View\ArrayDataWindow.cpp" />
     <ClCompile Include="View\CameraDataWindow.cpp" />
     <ClCompile Include="View\DataWindow.cpp" />
@@ -201,7 +203,8 @@
       <AdditionalDependencies>$(ProjectDir)..\BML-0.3.40-dev\lib\Debug\BML.lib;%(AdditionalDependencies);d3d9.lib;d3dx9.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>::for /r $(OutputPath) %%a in (*.cmo) do rename %%a *.nmo</Command>
+      <Command>$(TargetDir)nmo.bat</Command>
+      <Message>Rename all .cmo to .nmo</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
