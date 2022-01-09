@@ -19,22 +19,22 @@ Submodules：
 
 第一次使用见不到全局主菜单是正常现象。Ballance 使用的是 DirectX 8，而 kiero 和 imgui 最低支持为 DirectX 9，所以需要先进行转换。这里使用 [enbconvertor](http://enbdev.com) 进行转换。
 
-在游戏中输入指令 `/setup_imgui_lib` 后，显示成功并重启游戏即可生效。若失败可尝试将[此目录](./DebugMod/d3d8/)下的所有文件直接放入 `Ballance根目录/bin/` 文件夹下，并重启游戏。
+在游戏中输入指令 `/setup_imgui_lib` 后，显示成功并重启游戏即可生效。若失败可尝试将[ d3d8 目录](./DebugMod/d3d8/)下的所有文件直接放入 `Ballance根目录/bin/` 文件夹，然后重启游戏。
 
 ## 功能
 
 ### 全局菜单
 
-一个全局存在的主菜单，显示在窗口最上方，包含了绝大部分的功能、选项，可调整 imgui 主题， ~~秒退游戏~~ 等。
+一个全局存在的主菜单，显示在窗口最上方，包含了绝大部分的功能、选项，可调整 imgui 主题，~~秒退游戏~~等。
 
 ![主菜单的一个选项卡](./pic/Options.png)
 ![主菜单](./pic/MainMenuBar.png)
 
-此功能默认全局打开。可在 Options - Hide Tool Bar 关闭。
+此功能默认全局打开。可在 `Options - Hide Tool Bar` 关闭。
 
 ### 物件列表
 
-一个显示当前游戏内大部分物件的窗口。在 New Window - List 打开。
+一个显示当前游戏内大部分物件的窗口。在 `New Window - List` 打开。
 
 ![物件列表窗口](./pic/List.png)
 
@@ -60,7 +60,7 @@ Submodules：
 
 ### 按键监视窗口
 
-以窗口的形式监视实时按键信息。在 New Window - Keyboard 打开。
+以窗口的形式监视实时按键信息。在 `New Window - Keyboard` 打开。
 
 分为两种类型：Ballance 全部按键（Default），仅监视方向键（Arrows-only）。
 
@@ -68,7 +68,7 @@ Submodules：
 
 ### 窗口列表
 
-即主菜单的 Windows List。该选项显示当前所有被开启的窗口，**注意窗口右上角的小'×'仅隐藏窗口**，可在 Windows List 中再次打开。亦可右键关闭防止内存占用 ~~（其实一般情况下并不会占用很多内存）~~ ，Kill All 可一次性关闭所有窗口。
+即主菜单的 Windows List。该选项显示当前所有被开启的窗口，**注意窗口右上角的小'×'仅隐藏窗口**，可在 `Windows List` 中再次打开。亦可右键关闭防止内存占用 ~~（其实一般情况下并不会占用很多内存）~~ ，Kill All 可一次性关闭所有窗口。
 
 ![窗口列表](./pic/WindowsList.png)
 
