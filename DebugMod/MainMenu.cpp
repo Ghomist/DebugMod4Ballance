@@ -55,7 +55,7 @@ void RenderMainMenuBar() {
 				ImGui::Separator();
 				if (ImGui::MenuItem("Gouraud Shading", "", shade_type == GouraudShading)) shade_type = GouraudShading;
 				if (ImGui::MenuItem("WireFrame", "", shade_type == WireFrame)) shade_type = WireFrame;
-				Tip("Rendering will use settings\nof materials for rendering");
+				Tip("Render wireframe only\nRendering will use settings\nof materials for rendering");
 				if (ImGui::MenuItem("Flat Shading", "", shade_type == FlatShading)) shade_type = FlatShading;
 				if (ImGui::MenuItem("Phong Shading", "", shade_type == PhongShading)) shade_type = PhongShading;
 				if (ImGui::MenuItem("Material Default", "", shade_type == MaterialDefault)) shade_type = MaterialDefault;
