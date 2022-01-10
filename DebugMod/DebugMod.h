@@ -39,7 +39,6 @@ public:
 	void PopAllDataWindows();
 	std::vector<DataWindow*>* GetAllDataWindows() { return &all_data_windows; }
 	bool* MainMenuEnable() { return &show_main_menu; }
-	bool* AlwaysTopMostEnable() { return &always_top_most; }
 
 	// Trafo display
 	bool* TrafoDisplay() { return &display_trafo_trigger; }
@@ -84,8 +83,6 @@ private:
 	std::vector<DataWindow*> all_data_windows;
 
 	bool show_main_menu = true;
-
-	bool always_top_most = false;
 
 	bool display_trafo_trigger = true;
 

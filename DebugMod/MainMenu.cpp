@@ -2,7 +2,7 @@
 
 void RenderMainMenuBar() {
 	static bool show_info = DEFAULT_SHOW_TIP;
-	static bool* always_top_most = DebugMod::GetActiveInstance()->AlwaysTopMostEnable();
+	static bool top_most = false;
 
 	static int shade_type = -1; // No external shade type
 	static bool texture = true;
@@ -32,8 +32,10 @@ void RenderMainMenuBar() {
 			}
 
 			ImGui::Separator();
-			if (ImGui::MenuItem("Top Most", "", always_top_most))
-				~(*always_top_most);
+			if (ImGui::MenuItem("Top Most", "", &top_most)) {
+				~top_most;
+				SetWindowTopMost(top_most);
+			}
 			if (ImGui::MenuItem("Hide Tool Bar"))
 				*DebugMod::GetActiveInstance()->MainMenuEnable() = false;
 			Tip("Use \"/debug menu\" to reopen");

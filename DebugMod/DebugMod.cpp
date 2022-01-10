@@ -198,8 +198,6 @@ void DebugMod::OnProcess() {
 
 	//GetLogger()->Info("%d", IsWindowTopMost());
 	//GetLogger()->Info("%d", GetFocus() == window);
-	if (always_top_most)
-		SetWindowTopMost(true);
 	InputHook::SetBlock(window != GetFocus());
 }
 
