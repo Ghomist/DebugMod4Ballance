@@ -152,9 +152,6 @@
     <ClCompile Include="DebugMod.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\imgui-1.85\imgui_demo.cpp">
-      <Filter>源文件\sample</Filter>
-    </ClCompile>
     <ClCompile Include="ImGuiSetup.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -272,6 +269,9 @@
       <Filter>资源文件</Filter>
     </None>
     <None Include="d3d8\enbconvertor.ini">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\README.md">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>

@@ -14,7 +14,7 @@ private:
 	CKContext* _context;
 	std::vector<std::string> name_list;
 	bool auto_fresh = true;
-	const char all_type[8][20] = { "3D Object", "Array", "Camera", "Target Camera", "Group", "Light", "Target Light", "Curve" };
+	const char all_type[8][20] = { "3D Object", "Array", "Camera", "Target Camera", "Group", "Light", "Target Light", "Behavior" };
 	const int all_type_cnt = 8;
 	int selected_type = 0;
 	int selected_obj = 0;

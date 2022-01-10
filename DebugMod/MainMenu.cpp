@@ -2,6 +2,7 @@
 
 void RenderMainMenuBar() {
 	static bool show_info = DEFAULT_SHOW_TIP;
+	static bool* always_top_most = DebugMod::GetActiveInstance()->AlwaysTopMostEnable();
 
 	static int shade_type = -1; // No external shade type
 	static bool texture = true;
@@ -31,6 +32,8 @@ void RenderMainMenuBar() {
 			}
 
 			ImGui::Separator();
+			if (ImGui::MenuItem("Top Most", "", always_top_most))
+				~(*always_top_most);
 			if (ImGui::MenuItem("Hide Tool Bar"))
 				*DebugMod::GetActiveInstance()->MainMenuEnable() = false;
 			Tip("Use \"/debug menu\" to reopen");
@@ -117,22 +120,22 @@ void RenderMainMenuBar() {
 			ImGui::EndMenu();
 		}
 		if (ImGui::BeginMenu("Windows List")) {
-			std::vector<DataWindow*> data_list = DebugMod::GetActiveInstance()->GetAllDataWindows();
-			if (data_list.size() == 0) {
+			auto data_list = DebugMod::GetActiveInstance()->GetAllDataWindows();
+			if (data_list->size() == 0) {
 				ImGui::Text("No Window");
 			}
 			else {
-				for (int i = 0; i < data_list.size(); ++i) {
+				for (int i = 0; i < data_list->size(); ++i) {
 					//if (ImGui::Selectable(data->GetTitle(), data->IsActive())) 
-					if (ImGui::MenuItem(data_list[i]->GetTitle(), "", data_list[i]->IsActive())) {
-						data_list[i]->ChangeActiveState();
+					if (ImGui::MenuItem(data_list->at(i)->GetTitle(), "", data_list->at(i)->IsActive())) {
+						data_list->at(i)->ChangeActiveState();
 					}
 					if (ImGui::BeginPopupContextItem()) {
 						if (ImGui::Button("Kill Window"))
 							DebugMod::GetActiveInstance()->PopDataWindow(i);
 						ImGui::EndPopup();
 					}
-					else Tip(data_list[i]->GetObjectName());
+					else Tip(data_list->at(i)->GetObjectName());
 				}
 				ImGui::Separator();
 				if (ImGui::Button("Kill All"))

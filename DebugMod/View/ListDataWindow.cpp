@@ -25,18 +25,22 @@ void ListDataWindow::Render() {
 
 	// Left
 	// ImVec2(200, 0), true
-	ImGui::BeginChild("left pane", ImVec2(150, 0), true);
-	if (ImGui::BeginListBox("##type list")) {
-		for (int i = 0; i < all_type_cnt; ++i) {
-			if (ImGui::Selectable(all_type[i], selected_type == i))
-				selected_type = i;
+	ImGui::BeginGroup();
+	{
+		ImGui::BeginChild("left pane", ImVec2(150, -ImGui::GetFrameHeightWithSpacing()), true);
+		if (ImGui::BeginListBox("##type list", ImVec2(125, 150))) {
+			for (int i = 0; i < all_type_cnt; ++i) {
+				if (ImGui::Selectable(all_type[i], selected_type == i))
+					selected_type = i;
+			}
+			ImGui::EndListBox();
 		}
-		ImGui::EndListBox();
+		ImGui::EndChild();
 		if (!auto_fresh && ImGui::Button("Refresh")) {
 			Fresh();
 		}
+		ImGui::EndGroup();
 	}
-	ImGui::EndChild();
 
 	// Right
 	ImGui::SameLine();
@@ -138,10 +142,10 @@ void ListDataWindow::OpenWindow() {
 
 void ListDataWindow::Fresh() {
 	CK_CLASSID c_id = CKStringToClassID(all_type[selected_type]);
-	int _obj_count = _context->GetObjectsCountByClassID(c_id);
+	int cnt = _context->GetObjectsCountByClassID(c_id);
 	CK_ID* IDs = _context->GetObjectsListByClassID(c_id);
 	name_list.clear();
-	for (int i = 0; i < _obj_count; ++i) {
+	for (int i = 0; i < cnt; ++i) {
 		CKObject* obj = _context->GetObject(IDs[i]);
 		if (obj != nullptr)
 			name_list.emplace_back(obj->GetName());

@@ -56,7 +56,6 @@
     <ClInclude Include="View\ListDataWindow.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\imgui-1.85\imgui_demo.cpp" />
     <ClCompile Include="..\submodules\imgui\backends\imgui_impl_dx10.cpp" />
     <ClCompile Include="..\submodules\imgui\backends\imgui_impl_dx11.cpp" />
     <ClCompile Include="..\submodules\imgui\backends\imgui_impl_dx9.cpp" />
@@ -88,6 +87,7 @@
     <ClCompile Include="View\ListDataWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\README.md" />
     <None Include="..\submodules\imgui\backends\vulkan\generate_spv.sh" />
     <None Include="..\submodules\imgui\backends\vulkan\glsl_shader.frag" />
     <None Include="..\submodules\imgui\backends\vulkan\glsl_shader.vert" />
@@ -161,7 +161,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>..\..\..\..\Ballance\ModLoader\Mods\DebugMod\</OutDir>
+    <OutDir>D:\Ballance\ModLoader\Mods\DebugMod</OutDir>
     <TargetExt>.bmod</TargetExt>
     <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
