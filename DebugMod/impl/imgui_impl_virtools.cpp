@@ -102,6 +102,14 @@ void ProcessGuiInput() {
 	}
 }
 
+bool IsWindowTopMost() {
+	return (GetWindowLong(window, GWL_EXSTYLE) & WS_EX_TOPMOST);
+}
+
+void SetWindowTopMost(bool top_most) {
+	SetWindowPos(window, top_most ? HWND_TOPMOST : HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
+}
+
 void InitializeKeyMap() {
 	ImGuiIO& io = ImGui::GetIO();
 	// Set key map

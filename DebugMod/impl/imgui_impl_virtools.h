@@ -18,3 +18,5 @@ void InitImGui(LPDIRECT3DDEVICE9 pDevice);
 int kieroExampleThread();
 void InitializeKeyMap();
 void ProcessGuiInput();
+bool IsWindowTopMost();
+void SetWindowTopMost(bool top_most);

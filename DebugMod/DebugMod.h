@@ -37,8 +37,9 @@ public:
 	void AddDataWindow(DataWindow* _data);
 	void PopDataWindow(int index);
 	void PopAllDataWindows();
-	std::vector<DataWindow*> GetAllDataWindows();
+	std::vector<DataWindow*>* GetAllDataWindows() { return &all_data_windows; }
 	bool* MainMenuEnable() { return &show_main_menu; }
+	bool* AlwaysTopMostEnable() { return &always_top_most; }
 
 	// Trafo display
 	bool* TrafoDisplay() { return &display_trafo_trigger; }
@@ -49,6 +50,8 @@ public:
 
 	// RSC
 	void LoadResource(XString filename, CKObjectArray* arr);
+
+	void AddAllToScene(CKObjectArray* arr);
 
 	// On events
 	virtual void OnLoadObject(CKSTRING filename, BOOL isMap, CKSTRING masterName,
@@ -82,8 +85,11 @@ private:
 
 	bool show_main_menu = true;
 
+	bool always_top_most = false;
+
 	bool display_trafo_trigger = true;
 
 	CKObjectArray* all_triger_display = CreateCKObjectArray();
+	CKObjectArray* all_test_floor = CreateCKObjectArray();
 	CKObjectArray* all_trace = CreateCKObjectArray();
 };

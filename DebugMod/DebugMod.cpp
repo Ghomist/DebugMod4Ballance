@@ -52,10 +52,6 @@ void DebugMod::PopAllDataWindows() {
 	all_data_windows.clear();
 }
 
-std::vector<DataWindow*> DebugMod::GetAllDataWindows() {
-	return all_data_windows;
-}
-
 void DebugMod::SetGlobalShadeMode(VxShadeType type, bool use_textures, bool wireframe) {
 	m_bml->GetRenderContext()->SetGlobalRenderMode(type, use_textures, wireframe);
 }
@@ -89,7 +85,8 @@ void DebugMod::SetFog(VXFOG_MODE mode, float start, float end, float density, in
 void DebugMod::OnLoadObject(CKSTRING filename, BOOL isMap, CKSTRING masterName, CK_CLASSID filterClass, BOOL addtoscene, BOOL reuseMeshes, BOOL reuseMaterials, BOOL dynamic, XObjectArray* objArray, CKObject* masterObj) {
 	// Display trafo trigger
 	if (isMap && display_trafo_trigger) {
-		CK3dObject* oDisplay = m_bml->Get3dObjectByName("Triger_display");
+		LoadResource("3D Entities\\PH\\P_Test_Floor.nmo", all_test_floor);
+		CK3dObject* oDisplay = m_bml->Get3dObjectByName("Test_floor");//("Triger_display");
 		CKTexture* t = m_bml->GetTextureByName("Triger_display_texture");
 		if (t == nullptr || oDisplay == nullptr) return;
 
@@ -126,7 +123,14 @@ void DebugMod::OnLoadObject(CKSTRING filename, BOOL isMap, CKSTRING masterName, 
 		GetLogger()->Info("Trafo display enable");
 	}
 	// Display all the loaded files
-	// GetLogger()->Info(filename);
+	//GetLogger()->Info(filename);
+	// Display all kinds of types
+	//if (objArray != nullptr)
+	//	for (int i = 0; i < objArray->Size(); ++i) {
+	//		CKObject* obj = m_bml->GetCKContext()->GetObject(*objArray->At(i));
+	//		if (obj == nullptr) continue;
+	//		GetLogger()->Info(CKClassIDToString(obj->GetClassID()));
+	//	}
 }
 
 void DebugMod::OnLoad() {
@@ -145,21 +149,38 @@ void DebugMod::OnLoad() {
 	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)kieroExampleThread, NULL, 0, NULL); // Hook thread
 
 	GetLogger()->Info("Loading resources..."); // Load RCS
-	LoadResource("3D Entities\\PH\\TrafoTriggerDisplay.nmo", all_triger_display);
-	LoadResource("3D Entities\\Trace.nmo", all_trace);
+	// LoadResource("3D Entities\\PH\\P_Test_Floor.nmo", all_test_floor);
+	// LoadResource("3D Entities\\PH\\TrafoTriggerDisplay.nmo", all_triger_display);
+	// LoadResource("3D Entities\\Trace.nmo", all_trace);
 }
 
 void DebugMod::LoadResource(XString filename, CKObjectArray* arr) {
 	XString oName(filename);
 	m_bml->GetPathManager()->ResolveFileName(filename, DATA_PATH_IDX, -1); // Resolve
 	CKERROR err = m_bml->GetCKContext()->Load(filename.Str(), arr);
-	if (err == CK_OK)
-		GetLogger()->Info("%s loaded", oName.Str());
-	else
-		GetLogger()->Error("%s: %d", oName.Str(), err);
+	if (err != CK_OK) {
+		GetLogger()->Error("%s load error: %d", oName.Str(), err);
+		return;
+	}
+	else GetLogger()->Info("%s loaded", oName.Str());
+
+	// AddAllToScene(arr);
+}
+
+void DebugMod::AddAllToScene(CKObjectArray* arr) {
+	// Add to current scene
+	CKScene* crt_scene = m_bml->GetCKContext()->GetCurrentScene();
+	while (!arr->EndOfList()) {
+		arr->Next();
+		CKSceneObject* obj = (CKSceneObject*)m_bml->GetCKContext()->GetObject(arr->Seek(arr->GetCurrentPos()));
+		if (obj == nullptr) continue;
+		crt_scene->AddObjectToScene(obj);
+		GetLogger()->Info("%s added to scene (%s)", obj->GetName(), crt_scene->GetName());
+	}
 }
 
 void DebugMod::OnStartLevel() {
+	// AddAllToScene(all_test_floor);
 	{ // Trace enable
 		m_bml->GetCKContext()->GetObjectByNameAndClass("Trace", CKCID_CURVE)->Show();
 		CKBehavior* beh = m_bml->GetScriptByName("Trace_script");
@@ -172,8 +193,14 @@ void DebugMod::OnStartLevel() {
 void DebugMod::OnPostLoadLevel() {}
 
 void DebugMod::OnProcess() {
-	if (m_bml->IsPlaying())
-		m_bml->GetInputManager()->ShowCursor(TRUE);
+	// Cursor display
+	m_bml->GetInputManager()->ShowCursor(TRUE);
+
+	//GetLogger()->Info("%d", IsWindowTopMost());
+	//GetLogger()->Info("%d", GetFocus() == window);
+	if (always_top_most)
+		SetWindowTopMost(true);
+	InputHook::SetBlock(window != GetFocus());
 }
 
 void DebugMod::OnRender(CK_RENDER_FLAGS flags) {}
