@@ -45,15 +45,6 @@
     <ClInclude Include="Include.h" />
     <ClInclude Include="ImGuiSetup.h" />
     <ClInclude Include="MainMenu.h" />
-    <ClInclude Include="View\AllView.h" />
-    <ClInclude Include="View\ArrayDataWindow.h" />
-    <ClInclude Include="View\CameraDataWindow.h" />
-    <ClInclude Include="View\DataWindow.h" />
-    <ClInclude Include="View\EntityDataWindow.h" />
-    <ClInclude Include="View\GroupDataWindow.h" />
-    <ClInclude Include="View\KeyDataWindow.h" />
-    <ClInclude Include="View\LightDataWindow.h" />
-    <ClInclude Include="View\ListDataWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\submodules\imgui\backends\imgui_impl_dx10.cpp" />
@@ -77,14 +68,6 @@
     <ClCompile Include="ImGuiSetup.cpp" />
     <ClCompile Include="impl\imgui_impl_virtools.cpp" />
     <ClCompile Include="MainMenu.cpp" />
-    <ClCompile Include="View\ArrayDataWindow.cpp" />
-    <ClCompile Include="View\CameraDataWindow.cpp" />
-    <ClCompile Include="View\DataWindow.cpp" />
-    <ClCompile Include="View\EntityDataWindow.cpp" />
-    <ClCompile Include="View\GroupDataWindow.cpp" />
-    <ClCompile Include="View\KeyDataWindow.cpp" />
-    <ClCompile Include="View\LightDataWindow.cpp" />
-    <ClCompile Include="View\ListDataWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />

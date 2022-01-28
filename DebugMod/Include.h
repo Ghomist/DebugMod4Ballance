@@ -1,7 +1,5 @@
 #pragma once
 
-#include "View/AllView.h"
-
 #include <BML/BMLAll.h>
 
 #include <imgui.h>

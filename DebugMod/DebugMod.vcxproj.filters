@@ -13,15 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="源文件\sample">
-      <UniqueIdentifier>{62969c08-6a26-45f1-847c-13bc9efc2ede}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="头文件\view">
-      <UniqueIdentifier>{c31e5607-b576-4e58-b3bc-0b89b4970d4e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\view">
-      <UniqueIdentifier>{51778d4d-e412-45fa-8494-c20409ce0b36}</UniqueIdentifier>
-    </Filter>
     <Filter Include="imgui">
       <UniqueIdentifier>{6a3cd2e3-bf1e-4f4f-822a-086da5b27b1b}</UniqueIdentifier>
     </Filter>
@@ -53,33 +44,6 @@
     </ClInclude>
     <ClInclude Include="ImGuiSetup.h">
       <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="View\AllView.h">
-      <Filter>头文件\view</Filter>
-    </ClInclude>
-    <ClInclude Include="View\ArrayDataWindow.h">
-      <Filter>头文件\view</Filter>
-    </ClInclude>
-    <ClInclude Include="View\CameraDataWindow.h">
-      <Filter>头文件\view</Filter>
-    </ClInclude>
-    <ClInclude Include="View\DataWindow.h">
-      <Filter>头文件\view</Filter>
-    </ClInclude>
-    <ClInclude Include="View\EntityDataWindow.h">
-      <Filter>头文件\view</Filter>
-    </ClInclude>
-    <ClInclude Include="View\GroupDataWindow.h">
-      <Filter>头文件\view</Filter>
-    </ClInclude>
-    <ClInclude Include="View\KeyDataWindow.h">
-      <Filter>头文件\view</Filter>
-    </ClInclude>
-    <ClInclude Include="View\LightDataWindow.h">
-      <Filter>头文件\view</Filter>
-    </ClInclude>
-    <ClInclude Include="View\ListDataWindow.h">
-      <Filter>头文件\view</Filter>
     </ClInclude>
     <ClInclude Include="..\submodules\imgui\imconfig.h">
       <Filter>imgui</Filter>
@@ -157,30 +121,6 @@
     </ClCompile>
     <ClCompile Include="DebugCmd.cpp">
       <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="View\ArrayDataWindow.cpp">
-      <Filter>源文件\view</Filter>
-    </ClCompile>
-    <ClCompile Include="View\CameraDataWindow.cpp">
-      <Filter>源文件\view</Filter>
-    </ClCompile>
-    <ClCompile Include="View\DataWindow.cpp">
-      <Filter>源文件\view</Filter>
-    </ClCompile>
-    <ClCompile Include="View\EntityDataWindow.cpp">
-      <Filter>源文件\view</Filter>
-    </ClCompile>
-    <ClCompile Include="View\GroupDataWindow.cpp">
-      <Filter>源文件\view</Filter>
-    </ClCompile>
-    <ClCompile Include="View\KeyDataWindow.cpp">
-      <Filter>源文件\view</Filter>
-    </ClCompile>
-    <ClCompile Include="View\LightDataWindow.cpp">
-      <Filter>源文件\view</Filter>
-    </ClCompile>
-    <ClCompile Include="View\ListDataWindow.cpp">
-      <Filter>源文件\view</Filter>
     </ClCompile>
     <ClCompile Include="..\submodules\imgui\imgui.cpp">
       <Filter>imgui</Filter>
